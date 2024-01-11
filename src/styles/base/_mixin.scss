@@ -1,0 +1,9 @@
+
+@use "./_variable.scss" as *;
+
+@mixin flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

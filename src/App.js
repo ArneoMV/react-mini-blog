@@ -1,8 +1,11 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from "./components/organism/navBar/NavBar.js"
 import Home from "./components/page/home/Home.js"
 import Create from './components/page/create/Create.js';
 import BlogDetails from './components/organism/blogDetails/BlogDetails.js';
+import PageNotFound from './components/page/pageNotFound/PageNotFound.js';
+
+import './styles/_index.scss';
 
 function App() {
   return (
@@ -10,17 +13,12 @@ function App() {
       <div className="App">
         <NavBar />
         <div className="content">
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/create">
-              <Create />
-            </Route>
-            <Route path="/blogs/:id">
-              <BlogDetails />
-            </Route>
-          </Switch>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route path="/create" element={<Create />} />
+            <Route path="/blogs/:id" element={<BlogDetails />} />
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
         </div>
       </div>
     </Router>

@@ -1,0 +1,40 @@
+
+// COMPONENT STYLES
+@mixin Button {
+    max-width: fit-content;
+    padding: 6px 14px;
+    border: none;
+    border-radius: $base-border-radius-md;
+    cursor: pointer;
+    // text-transform: uppercase;
+    height: 34px;
+  
+    font-family: "Rubik", sans-serif;
+    color: $primary-600;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0.07em;
+    text-align: left;
+  }
+
+  button {
+    @include Button();
+    background-color: $primary-100;
+  
+    &:hover {
+      box-sizing: border-box;
+      box-shadow: $shadow-sm;
+      background-color: $primary-200;
+    }
+    &:focus {
+      box-shadow: $shadow-sm; 
+      background-color: $primary-200;
+    }
+    &:disabled {
+      background-color: $neutral-300;
+      color: $neutral-500;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+  }
